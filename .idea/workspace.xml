@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3a5c091-dd36-426e-b327-1af7b64084d9" name="Changes" comment="implementation Order Matching Engine">
+    <list default="true" id="a3a5c091-dd36-426e-b327-1af7b64084d9" name="showResult function" comment="rename package Service to service" />
+    <list id="e5bb8882-382b-41a0-a3b8-7730b91ec25a" name="moving prepareOrder" comment="moving prepareOrder function from class MatchingEngine to class ConsoleUI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tosan/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/service/MatchingEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tosan/service/MatchingEngine.java" afterDir="false" />
@@ -97,7 +98,7 @@
       <updated>1739646091066</updated>
       <workItem from="1739646092115" duration="3757000" />
       <workItem from="1739678397571" duration="24169000" />
-      <workItem from="1739767314077" duration="29000000" />
+      <workItem from="1739767314077" duration="33581000" />
     </task>
     <task id="LOCAL-00001" summary="project structure added">
       <option name="closed" value="true" />
@@ -160,7 +161,10 @@
     <MESSAGE value="project structure added" />
     <MESSAGE value="maven compiler version upgraded to 21" />
     <MESSAGE value="implementation Order Matching Engine" />
-    <option name="LAST_COMMIT_MESSAGE" value="implementation Order Matching Engine" />
+    <MESSAGE value="rename class ResultOrder to OrderResult" />
+    <MESSAGE value="moving method prepareOrder from class MatchingEngine to class ConsoleUI" />
+    <MESSAGE value="rename package Service to service" />
+    <option name="LAST_COMMIT_MESSAGE" value="rename package Service to service" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

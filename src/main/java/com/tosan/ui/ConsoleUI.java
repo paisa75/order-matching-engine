@@ -35,30 +35,26 @@ public class ConsoleUI {
     public void showResult(OrderResult orderResult) {
         String textResultCount = "";
         String textResult = "";
-        if (orderResult.getCountSuccessfulOrder() > 0){
-            textResultCount = """
-                \n=====================================================
-                     :)  Successful sell records count is :"""+ orderResult.getCountSuccessfulOrder()+""" 
-                \n=====================================================
-                """;
+        if (orderResult.getCountSuccessfulOrder() > 0) {
+            textResultCount += "===================================================== " +
+                    "\n :)  Successful sell records count is :" + orderResult.getCountSuccessfulOrder() +
+                    "\n =====================================================";
             for (OrderResult result : orderResult.getResultOrders()) {
-                textResult += """
-                 **************** recorde : """+result.getCountSuccessfulOrder()+"""
-                 *********************
-                   \n buy order id is:"""+result.getBuyOrderID()+"""  
-                   \n sell order id is:"""+result.getSellOrderID()+"""   
-                   \n Trade executed is:"""+result.getTradeQuantity()+"""
-                   \n units at:"""+result.getTradePrice()+"""             
-                """;
+                textResult += "**************** recorde :" + result.getCountSuccessfulOrder() +
+                        "\n *********************" +
+                        "\n buy order id is:" + result.getBuyOrderID() +
+                        "\n sell order id is:" + result.getSellOrderID() +
+                        "\n Trade executed is:" + result.getTradeQuantity() +
+                        "\n units at:" + result.getTradePrice();
             }
             System.out.println(textResultCount);
             System.out.println(textResult);
         } else {
             textResultCount += """
-                =====================================================
-                              :(  the sell was not made 
-                =====================================================
-                """;
+                    =====================================================
+                                  :(  the sell was not made 
+                    =====================================================
+                    """;
             System.out.println(textResultCount);
         }
     }
