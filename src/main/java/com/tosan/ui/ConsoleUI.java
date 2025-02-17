@@ -1,7 +1,7 @@
 package com.tosan.ui;
 
 
-import com.tosan.model.ResultOrder;
+import com.tosan.model.OrderResult;
 
 import java.util.Scanner;
 
@@ -28,16 +28,16 @@ public class ConsoleUI {
         return line;
     }
 
-    public void showResult(ResultOrder resultOrder) {
+    public void showResult(OrderResult orderResult) {
         String textResultCount = "";
         String textResult = "";
-        if (resultOrder.getCountSuccessfulOrder() > 0){
+        if (orderResult.getCountSuccessfulOrder() > 0){
             textResultCount = """
                 \n=====================================================
-                     :)  Successful sell records count is :"""+resultOrder.getCountSuccessfulOrder()+""" 
+                     :)  Successful sell records count is :"""+ orderResult.getCountSuccessfulOrder()+""" 
                 \n=====================================================
                 """;
-            for (ResultOrder result : resultOrder.getResultOrders()) {
+            for (OrderResult result : orderResult.getResultOrders()) {
                 textResult += """
                  **************** recorde : """+result.getCountSuccessfulOrder()+"""
                  *********************

@@ -1,7 +1,7 @@
 package com.tosan;
 
 import com.tosan.Service.MatchingEngine;
-import com.tosan.model.ResultOrder;
+import com.tosan.model.OrderResult;
 import com.tosan.ui.ConsoleUI;
 
 import java.util.Scanner;
@@ -22,8 +22,8 @@ public class Main
             if (textOrderRegister.trim().isEmpty()) {
                 break;
             }
-            ResultOrder resultOrder = matchingEngine.processNewOrder(textOrderRegister);
-            consoleUI.showResult(resultOrder);
+            OrderResult orderResult = matchingEngine.processNewOrder(textOrderRegister);
+            consoleUI.showResult(orderResult);
         }
         scanner.close();
     }

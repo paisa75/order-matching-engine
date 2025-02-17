@@ -3,7 +3,7 @@ package com.tosan.Service;
 import com.tosan.data.OrderBook;
 import com.tosan.model.BuyOrder;
 import com.tosan.model.Order;
-import com.tosan.model.ResultOrder;
+import com.tosan.model.OrderResult;
 import com.tosan.model.SellOrder;
 
 import java.math.BigDecimal;
@@ -17,7 +17,7 @@ public class MatchingEngine {
         this.orderBook = new OrderBook();
     }
 
-    public ResultOrder processNewOrder(String textOrderRegister) {
+    public OrderResult processNewOrder(String textOrderRegister) {
         Order order = prepareOrder(textOrderRegister);
         orderBook.addOrder(order);
         return matchOrders();
@@ -37,9 +37,9 @@ public class MatchingEngine {
         return order;
     }
 
-    private ResultOrder matchOrders() {
-        ResultOrder resultOrder = new ResultOrder();
-        List<ResultOrder> resultOrderList = new ArrayList<>();
+    private OrderResult matchOrders() {
+        OrderResult orderResult = new OrderResult();
+        List<OrderResult> orderResultList = new ArrayList<>();
         int countSuccessfulOrder = 0;
 
         while (!orderBook.getBuyOrders().isEmpty() && !orderBook.getSellOrders().isEmpty()) {
@@ -61,24 +61,24 @@ public class MatchingEngine {
                 if (lowestSell.getQuantity() == 0) {
                     orderBook.getSellOrders().poll();
                 }
-                ResultOrder result = prepareResultOrder(highestBuy.getId(), lowestSell.getId(), tradeQuantity, tradePrice, countSuccessfulOrder);
-                resultOrderList.add(result);
+                OrderResult result = prepareResultOrder(highestBuy.getId(), lowestSell.getId(), tradeQuantity, tradePrice, countSuccessfulOrder);
+                orderResultList.add(result);
             } else {
                 break;
             }
         }
-        resultOrder.setCountSuccessfulOrder(countSuccessfulOrder);
-        resultOrder.setResultOrders(resultOrderList);
-        return resultOrder;
+        orderResult.setCountSuccessfulOrder(countSuccessfulOrder);
+        orderResult.setResultOrders(orderResultList);
+        return orderResult;
     }
 
-    private ResultOrder prepareResultOrder(String buyOrderID, String sellOrderID, int tradeQuantity, BigDecimal tradePrice, int countSuccessfulOrder) {
-        ResultOrder resultOrder = new ResultOrder();
-        resultOrder.setBuyOrderID(buyOrderID);
-        resultOrder.setSellOrderID(sellOrderID);
-        resultOrder.setTradeQuantity(tradeQuantity);
-        resultOrder.setTradePrice(tradePrice);
-        resultOrder.setCountSuccessfulOrder(countSuccessfulOrder);
-        return resultOrder;
+    private OrderResult prepareResultOrder(String buyOrderID, String sellOrderID, int tradeQuantity, BigDecimal tradePrice, int countSuccessfulOrder) {
+        OrderResult orderResult = new OrderResult();
+        orderResult.setBuyOrderID(buyOrderID);
+        orderResult.setSellOrderID(sellOrderID);
+        orderResult.setTradeQuantity(tradeQuantity);
+        orderResult.setTradePrice(tradePrice);
+        orderResult.setCountSuccessfulOrder(countSuccessfulOrder);
+        return orderResult;
     }
 }

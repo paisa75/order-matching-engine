@@ -3,14 +3,14 @@ package com.tosan.model;
 import java.math.BigDecimal;
 import java.util.List;
 
-public class ResultOrder {
+public class OrderResult {
     private String buyOrderID;
     private String sellOrderID;
     private int tradeQuantity;
     private BigDecimal tradePrice;
     private int countSuccessfulOrder;
 
-    private List<ResultOrder> resultOrders;
+    private List<OrderResult> orderResults;
     public String getBuyOrderID() {
         return buyOrderID;
     }
@@ -51,11 +51,11 @@ public class ResultOrder {
         this.countSuccessfulOrder = countSuccessfulOrder;
     }
 
-    public List<ResultOrder> getResultOrders() {
-        return resultOrders;
+    public List<OrderResult> getResultOrders() {
+        return orderResults;
     }
 
-    public void setResultOrders(List<ResultOrder> resultOrders) {
-        this.resultOrders = resultOrders;
+    public void setResultOrders(List<OrderResult> orderResults) {
+        this.orderResults = orderResults;
     }
 }
