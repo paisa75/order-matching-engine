@@ -17,24 +17,9 @@ public class MatchingEngine {
         this.orderBook = new OrderBook();
     }
 
-    public OrderResult processNewOrder(String textOrderRegister) {
-        Order order = prepareOrder(textOrderRegister);
+    public OrderResult processNewOrder(Order order) {
         orderBook.addOrder(order);
         return matchOrders();
-    }
-
-    private Order prepareOrder(String line) {
-        Order order;
-        String[] tokens = line.split("#");
-        String orderType = tokens[0];
-        BigDecimal price = new BigDecimal(tokens[1]);
-        Integer quantity = Integer.valueOf(tokens[2]);
-        if (orderType.equals("buyOrder")) {
-            order = new BuyOrder(price, quantity);
-        } else {
-            order = new SellOrder(price, quantity);
-        }
-        return order;
     }
 
     private OrderResult matchOrders() {

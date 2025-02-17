@@ -1,14 +1,18 @@
 package com.tosan.ui;
 
 
+import com.tosan.model.BuyOrder;
+import com.tosan.model.Order;
 import com.tosan.model.OrderResult;
+import com.tosan.model.SellOrder;
 
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 
 public class ConsoleUI {
-    public String getOrder(Scanner scanner) {
-        String line = "";
+    public Order getOrder() {
+        Scanner scanner = new Scanner(System.in);
         String textOrderRegister = """
                 *****************************************************
                 *   Pleas enter your order in the format below      *
@@ -24,8 +28,8 @@ public class ConsoleUI {
                     enter your order : \n
                 """;
         System.out.println(textOrderRegister);
-            line = scanner.nextLine();
-        return line;
+        String line = scanner.nextLine();
+        return prepareOrder(line);
     }
 
     public void showResult(OrderResult orderResult) {
@@ -57,5 +61,19 @@ public class ConsoleUI {
                 """;
             System.out.println(textResultCount);
         }
+    }
+
+    private Order prepareOrder(String line) {
+        Order order;
+        String[] tokens = line.split("#");
+        String orderType = tokens[0];
+        BigDecimal price = new BigDecimal(tokens[1]);
+        Integer quantity = Integer.valueOf(tokens[2]);
+        if (orderType.equals("buyOrder")) {
+            order = new BuyOrder(price, quantity);
+        } else {
+            order = new SellOrder(price, quantity);
+        }
+        return order;
     }
 }

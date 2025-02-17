@@ -7,8 +7,7 @@
     <list default="true" id="a3a5c091-dd36-426e-b327-1af7b64084d9" name="Changes" comment="implementation Order Matching Engine">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tosan/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/Service/MatchingEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tosan/Service/MatchingEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/model/ResultOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tosan/model/OrderResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/service/MatchingEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tosan/service/MatchingEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/ui/ConsoleUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tosan/ui/ConsoleUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,6 +90,7 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="a3a5c091-dd36-426e-b327-1af7b64084d9" name="Changes" comment="" />
+      <changelist id="e5bb8882-382b-41a0-a3b8-7730b91ec25a" name="q" comment="move " />
       <created>1739646091066</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -123,7 +123,23 @@
       <option name="project" value="LOCAL" />
       <updated>1739793972994</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="rename class ResultOrder to OrderResult">
+      <option name="closed" value="true" />
+      <created>1739800064577</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1739800064577</updated>
+    </task>
+    <task id="LOCAL-00005" summary="rename package Service to service">
+      <option name="closed" value="true" />
+      <created>1739800267460</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1739800267460</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,9 +166,14 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tosan/Service/MatchingEngine.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/tosan/service/MatchingEngine.java</url>
           <line>69</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tosan/Main.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
