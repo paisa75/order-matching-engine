@@ -13,21 +13,7 @@ import java.util.Scanner;
 public class ConsoleUI {
     public Order getOrder() {
         Scanner scanner = new Scanner(System.in);
-        String textOrderRegister = """
-                *****************************************************
-                *   Pleas enter your order in the format below      *
-                *   orderType#price#quantity                        *
-                *                                                   *
-                *   Help:                                           *
-                *   enter the order type 'buyOrder' or 'sellOrder'  *
-                *   enter the order amount with numbers only        *                         *
-                *   enter your order number with numbers only       *
-                *   put a sharp(#) between each item                *
-                *****************************************************
-                    
-                    enter your order : \n
-                """;
-        System.out.println(textOrderRegister);
+        System.out.println(UserMessage.ORDER_REGISTRATION);
         String line = scanner.nextLine();
         return prepareOrder(line);
     }
