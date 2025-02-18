@@ -50,12 +50,7 @@ public class ConsoleUI {
             System.out.println(textResultCount);
             System.out.println(textResult);
         } else {
-            textResultCount += """
-                    =====================================================
-                                  :(  the sell was not made 
-                    =====================================================
-                    """;
-            System.out.println(textResultCount);
+            System.out.println(UserMessage.ORDER_NOT_PLACED);
         }
     }
 
