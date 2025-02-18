@@ -7,6 +7,7 @@ import com.tosan.model.OrderResult;
 import com.tosan.model.SellOrder;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -18,20 +19,22 @@ public class ConsoleUI {
         return prepareOrder(line);
     }
 
-    public void showResult(OrderResult orderResult) {
+    public void showResult(List<OrderResult> orderResultList) {
+        int recordNumber = 0;
         String textResultCount = "";
         String textResult = "";
-        if (orderResult.getCountSuccessfulOrder() > 0) {
+        if (orderResultList.size() > 0) {
             textResultCount += "===================================================== " +
-                    "\n :)  Successful sell records count is :" + orderResult.getCountSuccessfulOrder() +
+                    "\n :)  Successful sell records count is :" + orderResultList.size() +
                     "\n =====================================================";
-            for (OrderResult result : orderResult.getResultOrders()) {
-                textResult += "**************** recorde :" + result.getCountSuccessfulOrder() +
-                        "\n *********************" +
-                        "\n buy order id is:" + result.getBuyOrderID() +
-                        "\n sell order id is:" + result.getSellOrderID() +
-                        "\n Trade executed is:" + result.getTradeQuantity() +
-                        "\n units at:" + result.getTradePrice();
+            for (OrderResult result : orderResultList) {
+                recordNumber ++;
+                textResult += "**************** record : " + recordNumber +
+                        "*********************" +
+                        "\n buy order id is : " + result.getBuyOrderID() +
+                        "\n sell order id is : " + result.getSellOrderID() +
+                        "\n Trade quantity is : " + result.getTradeQuantity() +
+                        "\n trade price is : " + result.getTradePrice() +"\n";
             }
             System.out.println(textResultCount);
             System.out.println(textResult);

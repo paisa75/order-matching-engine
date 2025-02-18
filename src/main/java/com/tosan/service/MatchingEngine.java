@@ -17,23 +17,19 @@ public class MatchingEngine {
         this.orderBook = new OrderBook();
     }
 
-    public OrderResult processNewOrder(Order order) {
+    public List<OrderResult> processNewOrder(Order order) {
         orderBook.addOrder(order);
         return matchOrders();
     }
 
-    private OrderResult matchOrders() {
-        OrderResult orderResult = new OrderResult();
+    private List<OrderResult> matchOrders() {
         List<OrderResult> orderResultList = new ArrayList<>();
-        int countSuccessfulOrder = 0;
 
         while (!orderBook.getBuyOrders().isEmpty() && !orderBook.getSellOrders().isEmpty()) {
             BuyOrder highestBuy = orderBook.getHighestBuyOrder();
             SellOrder lowestSell = orderBook.getLowestSellOrder();
 
             if (highestBuy.getPrice().compareTo(lowestSell.getPrice()) >= 0) {
-                countSuccessfulOrder ++;
-
                 int tradeQuantity = Math.min(highestBuy.getQuantity(), lowestSell.getQuantity());
                 BigDecimal tradePrice = lowestSell.getPrice();
 
@@ -46,24 +42,21 @@ public class MatchingEngine {
                 if (lowestSell.getQuantity() == 0) {
                     orderBook.getSellOrders().poll();
                 }
-                OrderResult result = prepareResultOrder(highestBuy.getId(), lowestSell.getId(), tradeQuantity, tradePrice, countSuccessfulOrder);
+                OrderResult result = prepareResultOrder(highestBuy.getId(), lowestSell.getId(), tradeQuantity, tradePrice);
                 orderResultList.add(result);
             } else {
                 break;
             }
         }
-        orderResult.setCountSuccessfulOrder(countSuccessfulOrder);
-        orderResult.setResultOrders(orderResultList);
-        return orderResult;
+        return orderResultList;
     }
 
-    private OrderResult prepareResultOrder(String buyOrderID, String sellOrderID, int tradeQuantity, BigDecimal tradePrice, int countSuccessfulOrder) {
+    private OrderResult prepareResultOrder(String buyOrderID, String sellOrderID, int tradeQuantity, BigDecimal tradePrice) {
         OrderResult orderResult = new OrderResult();
         orderResult.setBuyOrderID(buyOrderID);
         orderResult.setSellOrderID(sellOrderID);
         orderResult.setTradeQuantity(tradeQuantity);
         orderResult.setTradePrice(tradePrice);
-        orderResult.setCountSuccessfulOrder(countSuccessfulOrder);
         return orderResult;
     }
 }

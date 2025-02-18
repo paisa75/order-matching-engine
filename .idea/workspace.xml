@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a1efa85-3597-4f2b-b14b-1dd306799e46" name="New changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/ui/ConsoleUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tosan/ui/ConsoleUI.java" afterDir="false" />
-    </list>
-    <list id="a3a5c091-dd36-426e-b327-1af7b64084d9" name="creat UserMessage class" comment="rename package Service to service">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/ui/UserMessage.java" afterDir="false" />
+    <list default="true" id="3a1efa85-3597-4f2b-b14b-1dd306799e46" name="change  return type " comment="change the return type of function matchOrders from OrderResult to List&lt;OrderResult&gt;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tosan/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/model/OrderResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tosan/model/OrderResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/service/MatchingEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tosan/service/MatchingEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/ui/ConsoleUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tosan/ui/ConsoleUI.java" afterDir="false" />
     </list>
+    <list id="a3a5c091-dd36-426e-b327-1af7b64084d9" name="creat UserMessage class" comment="rename package Service to service" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,14 +27,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/com/tosan/ui/ConsoleUI.java">
-      <ranges>
-        <range start1="15" end1="30" start2="15" end2="16" changelist="3a1efa85-3597-4f2b-b14b-1dd306799e46" />
-        <range start1="52" end1="58" start2="38" end2="39" changelist="a3a5c091-dd36-426e-b327-1af7b64084d9" />
-      </ranges>
-    </file>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -112,7 +104,7 @@
       <workItem from="1739646092115" duration="3757000" />
       <workItem from="1739678397571" duration="24169000" />
       <workItem from="1739767314077" duration="35163000" />
-      <workItem from="1739853683162" duration="1121000" />
+      <workItem from="1739853683162" duration="6015000" />
     </task>
     <task id="LOCAL-00001" summary="project structure added">
       <option name="closed" value="true" />
@@ -170,7 +162,23 @@
       <option name="project" value="LOCAL" />
       <updated>1739805426802</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="rename package Service to service">
+      <option name="closed" value="true" />
+      <created>1739854999192</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1739854999192</updated>
+    </task>
+    <task id="LOCAL-00009" summary="rename package Service to service">
+      <option name="closed" value="true" />
+      <created>1739855036019</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1739855036019</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,6 +202,7 @@
     <MESSAGE value="rename class ResultOrder to OrderResult" />
     <MESSAGE value="moving method prepareOrder from class MatchingEngine to class ConsoleUI" />
     <MESSAGE value="moving prepareOrder function from class MatchingEngine to class ConsoleUI" />
+    <MESSAGE value="New changelist" />
     <MESSAGE value="rename package Service to service" />
     <option name="LAST_COMMIT_MESSAGE" value="rename package Service to service" />
   </component>
@@ -201,14 +210,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tosan/service/MatchingEngine.java</url>
-          <line>57</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tosan/Main.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="5" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/tosan/ui/ConsoleUI.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

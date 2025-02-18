@@ -8,9 +8,7 @@ public class OrderResult {
     private String sellOrderID;
     private int tradeQuantity;
     private BigDecimal tradePrice;
-    private int countSuccessfulOrder;
 
-    private List<OrderResult> orderResults;
     public String getBuyOrderID() {
         return buyOrderID;
     }
@@ -41,21 +39,5 @@ public class OrderResult {
 
     public void setTradePrice(BigDecimal tradePrice) {
         this.tradePrice = tradePrice;
-    }
-
-    public int getCountSuccessfulOrder() {
-        return countSuccessfulOrder;
-    }
-
-    public void setCountSuccessfulOrder(int countSuccessfulOrder) {
-        this.countSuccessfulOrder = countSuccessfulOrder;
-    }
-
-    public List<OrderResult> getResultOrders() {
-        return orderResults;
-    }
-
-    public void setResultOrders(List<OrderResult> orderResults) {
-        this.orderResults = orderResults;
     }
 }

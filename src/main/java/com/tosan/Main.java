@@ -5,6 +5,7 @@ import com.tosan.service.MatchingEngine;
 import com.tosan.model.OrderResult;
 import com.tosan.ui.ConsoleUI;
 
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -19,8 +20,8 @@ public class Main
         MatchingEngine matchingEngine = new MatchingEngine();
         while (true) {
         Order order = consoleUI.getOrder();
-            OrderResult orderResult = matchingEngine.processNewOrder(order);
-            consoleUI.showResult(orderResult);
+            List<OrderResult> orderResultList = matchingEngine.processNewOrder(order);
+            consoleUI.showResult(orderResultList);
         }
     }
 }
