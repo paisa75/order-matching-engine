@@ -1,6 +1,7 @@
 package com.tosan.factory;
 
 import com.tosan.annotations.InjectObject;
+import com.tosan.exceptions.OrderException;
 import org.objenesis.Objenesis;
 import org.objenesis.ObjenesisStd;
 
@@ -23,7 +24,7 @@ public class ObjectFactoryInjector {
             instanceCache.put(clazz, obj);
             return obj;
         } catch (Exception e) {
-            throw new RuntimeException("Error creating object: " + clazz.getSimpleName(), e);
+            throw new OrderException("Error creating object: " + clazz.getSimpleName(), e);
         }
     }
 
@@ -39,7 +40,7 @@ public class ObjectFactoryInjector {
                         field.set(instance, injectedObject);
                     }
                 } catch (IllegalAccessException e) {
-                    throw new RuntimeException("Error injecting dependency: " + field.getName(), e);
+                    throw new OrderException("Error injecting dependency: " + field.getName(), e);
                 }
             }
         }
@@ -51,7 +52,7 @@ public class ObjectFactoryInjector {
             constructor.setAccessible(true);
             return constructor.newInstance();
         } catch (Exception e) {
-            throw new RuntimeException("Error creating object using reflection: " + clazz.getSimpleName(), e);
+            throw new OrderException("Error creating object using reflection: " + clazz.getSimpleName(), e);
         }
     }
 }

@@ -27,7 +27,7 @@ public class OrderValidator {
                 throw new OrderException("Price must be a positive number.");
             }
         } catch (NumberFormatException e) {
-            throw new OrderException("Price must be a valid number.");
+            throw new OrderException("Price must be a valid number.", e);
         }
 
         String quantityStr = parts[2].trim();
