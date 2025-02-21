@@ -1,5 +1,6 @@
 package com.tosan.service;
 
+import com.tosan.annotations.InjectObject;
 import com.tosan.data.OrderBook;
 import com.tosan.model.BuyOrder;
 import com.tosan.model.Order;
@@ -11,11 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MatchingEngine {
-    private final OrderBook orderBook;
-
-    public MatchingEngine() {
-        this.orderBook = new OrderBook();
-    }
+    @InjectObject
+    private OrderBook orderBook;
 
     public List<OrderResult> processNewOrder(Order order) {
         orderBook.addOrder(order);

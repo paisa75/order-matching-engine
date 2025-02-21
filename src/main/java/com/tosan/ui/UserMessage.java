@@ -14,7 +14,7 @@ public class UserMessage {
             *                                                   *
             *   Help:                                           *
             *   enter the order type 'buyOrder' or 'sellOrder'  *
-            *   enter the order amount with numbers only        *                         *
+            *   enter the order amount with numbers only        *                         
             *   enter your order number with numbers only       *
             *   put a sharp(#) between each item                *
             *****************************************************
