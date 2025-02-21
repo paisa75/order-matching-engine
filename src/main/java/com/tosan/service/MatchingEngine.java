@@ -27,7 +27,7 @@ public class MatchingEngine {
             BuyOrder highestBuy = orderBook.getHighestBuyOrder();
             SellOrder lowestSell = orderBook.getLowestSellOrder();
 
-            if (highestBuy.getPrice().compareTo(lowestSell.getPrice()) >= 0) {
+            if (highestBuy != null && lowestSell != null && highestBuy.getPrice().compareTo(lowestSell.getPrice()) >= 0) {
                 int tradeQuantity = Math.min(highestBuy.getQuantity(), lowestSell.getQuantity());
                 BigDecimal tradePrice = lowestSell.getPrice();
 

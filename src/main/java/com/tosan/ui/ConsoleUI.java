@@ -1,6 +1,7 @@
 package com.tosan.ui;
 
 
+import com.tosan.factory.OrderFactory;
 import com.tosan.model.BuyOrder;
 import com.tosan.model.Order;
 import com.tosan.model.OrderResult;
@@ -44,16 +45,10 @@ public class ConsoleUI {
     }
 
     private Order prepareOrder(String line) {
-        Order order;
         String[] tokens = line.split("#");
         String orderType = tokens[0];
         BigDecimal price = new BigDecimal(tokens[1]);
         Integer quantity = Integer.valueOf(tokens[2]);
-        if (orderType.equals("buyOrder")) {
-            order = new BuyOrder(price, quantity);
-        } else {
-            order = new SellOrder(price, quantity);
-        }
-        return order;
+        return OrderFactory.createOrder(orderType, price, quantity);
     }
 }
