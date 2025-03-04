@@ -13,9 +13,9 @@ public abstract class Order implements Comparable<Order> {
         this.quantity = quantity;
     }
 
-    // پیاده‌سازی متد compareTo برای مقایسه
     @Override
     public abstract int compareTo(Order order);
+
     @Override
     public String toString() {
         return "Order{" +
@@ -26,6 +26,7 @@ public abstract class Order implements Comparable<Order> {
     }
 
     protected abstract String generateId();
+
     public String getId() {
         return id;
     }
