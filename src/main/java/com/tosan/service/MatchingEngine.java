@@ -1,5 +1,6 @@
 package com.tosan.service;
 
+import com.tosan.annotations.Component;
 import com.tosan.annotations.InjectObject;
 import com.tosan.data.OrderBook;
 import com.tosan.model.BuyOrder;
@@ -12,7 +13,8 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MatchingEngine {
+@Component
+public class MatchingEngine implements IMatchingEngine {
     @InjectObject
     private OrderBook orderBook;
 
@@ -23,7 +25,7 @@ public class MatchingEngine {
         return matchOrders();
     }
 
-    private List<OrderResult> matchOrders() {
+    protected List<OrderResult> matchOrders() {
         List<OrderResult> orderResultList = new ArrayList<>();
 
         while (!orderBook.getBuyOrders().isEmpty() && !orderBook.getSellOrders().isEmpty()) {
