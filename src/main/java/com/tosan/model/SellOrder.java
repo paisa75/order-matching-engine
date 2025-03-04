@@ -3,7 +3,7 @@ package com.tosan.model;
 import java.math.BigDecimal;
 import java.util.UUID;
 
-public class SellOrder extends Order{
+public class SellOrder extends Order {
     public SellOrder(BigDecimal price, Integer quantity) {
         super(price, quantity);
     }
@@ -15,6 +15,6 @@ public class SellOrder extends Order{
 
     @Override
     protected String generateId() {
-        return "s-" + UUID.randomUUID().toString();
+        return "s-" + UUID.randomUUID();
     }
 }
