@@ -1,10 +1,27 @@
 package com.tosan.validation;
 
 import com.tosan.exceptions.OrderException;
+import com.tosan.model.InputOrder;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.Validation;
+import jakarta.validation.Validator;
+import jakarta.validation.ValidatorFactory;
+import org.hibernate.validator.HibernateValidator;
+import org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator;
 
-import java.math.BigDecimal;
+import java.util.Set;
 
 public class OrderValidator {
+    private final Validator validator;
+
+    public OrderValidator() {
+        ValidatorFactory factory = Validation.byProvider(HibernateValidator.class)
+                .configure()
+                .messageInterpolator(new ParameterMessageInterpolator())
+                .buildValidatorFactory();
+        this.validator = factory.getValidator();
+    }
+
     public void validateInputFormat(String input) {
         if (input == null || input.trim().isEmpty()) {
             throw new OrderException("Input cannot be empty.");
@@ -12,32 +29,23 @@ public class OrderValidator {
 
         String[] parts = input.split("#");
         if (parts.length != 3) {
-            throw new OrderException("Error: Input should have exactly 3 parts separated by '#'.");
+            throw new OrderException("Input must have exactly 3 parts separated by '#'.");
         }
 
         String orderType = parts[0].trim();
-        if (!orderType.equals("buyOrder") && !orderType.equals("sellOrder")) {
-            throw new OrderException("Invalid order type. It should be either 'buyOrder' or 'sellOrder'.");
-        }
+        String orderPrice = parts[1].trim();
+        String orderQuantity = parts[2].trim();
 
-        String priceStr = parts[1].trim();
-        try {
-            BigDecimal price = new BigDecimal(priceStr);
-            if (price.compareTo(BigDecimal.ZERO) <= 0) {
-                throw new OrderException("Price must be a positive number.");
-            }
-        } catch (NumberFormatException e) {
-            throw new OrderException("Price must be a valid number.", e);
-        }
+        InputOrder inputOrder = new InputOrder(orderType, orderPrice, orderQuantity);
 
-        String quantityStr = parts[2].trim();
-        try {
-            Integer quantity = Integer.parseInt(quantityStr);
-            if (quantity <= 0) {
-                throw new OrderException("Quantity must be a positive number.");
+        Set<ConstraintViolation<InputOrder>> violations = validator.validate(inputOrder);
+
+        if (!violations.isEmpty()) {
+            StringBuilder errors = new StringBuilder();
+            for (ConstraintViolation<InputOrder> violation : violations) {
+                errors.append(violation.getMessage()).append("\n");
             }
-        } catch (NumberFormatException e) {
-            throw new OrderException("Quantity must be a valid integer.");
+            throw new OrderException(errors.toString());
         }
     }
 }
