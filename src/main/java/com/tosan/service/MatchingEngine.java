@@ -6,6 +6,7 @@ import com.tosan.model.BuyOrder;
 import com.tosan.model.Order;
 import com.tosan.model.OrderResult;
 import com.tosan.model.SellOrder;
+import com.tosan.annotations.Loggable;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -15,6 +16,8 @@ public class MatchingEngine {
     @InjectObject
     private OrderBook orderBook;
 
+    @Loggable
+    @Override
     public List<OrderResult> processNewOrder(Order order) {
         orderBook.addOrder(order);
         return matchOrders();

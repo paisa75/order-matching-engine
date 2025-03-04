@@ -4,10 +4,66 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a1efa85-3597-4f2b-b14b-1dd306799e46" name="create orderValidator class" comment="creat orderValidator class">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/exceptions/OrderException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tosan/exceptions/OrderException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/factory/ObjectFactoryInjector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tosan/factory/ObjectFactoryInjector.java" afterDir="false" />
+    <list default="true" id="46a05c19-d631-4aad-a072-5b9acbeec778" name="implementation of log process" comment="implementation of log process">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/annotations/Loggable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/logging/LogProxy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/logging/Logger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/service/MatchingEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tosan/service/MatchingEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/ui/ConsoleUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tosan/ui/ConsoleUI.java" afterDir="false" />
+    </list>
+    <list id="568e49e9-163b-4ebf-b92c-d8b2e7b60705" name="creat interface for classes" comment="creat interface for classes">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/data/IOrderBook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/factory/IOrderFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/service/IMatchingEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/data/OrderBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tosan/data/OrderBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/factory/OrderFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tosan/factory/OrderFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/service/MatchingEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tosan/service/MatchingEngine.java" afterDir="false" />
+    </list>
+    <list id="f0d197a2-df7b-4591-811f-3642ff1d4c80" name="creat orderType enum" comment="creat orderType enum">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/model/OrderType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/ui/IConsoleUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/ui/ConsoleUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tosan/ui/ConsoleUI.java" afterDir="false" />
+    </list>
+    <list id="7320ab30-6b3a-4164-8677-2f9824ec310a" name="implementation BeanContainer" comment="implementation BeanContainer">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/annotations/Component.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/container/BeanContainer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/scanner/PackageScanner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tosan/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/factory/ObjectFactoryInjector.java" beforeDir="false" />
+    </list>
+    <list id="324c0def-c1bc-4e14-bbe0-d518e7427339" name="implementing validation with annotation" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/annotations/ValidInputFormat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/annotations/ValidOrderType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/annotations/ValidPrice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/annotations/ValidQuantity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/model/InputOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/validation/InputFormatValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/validation/OrderTypeValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/validation/PositivePriceValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/validation/PositiveQuantityValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/validation/OrderValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tosan/validation/OrderValidator.java" afterDir="false" />
+    </list>
+    <list id="3e69411c-439f-4b03-9c53-f318c88812aa" name="refactor buy order and sell order" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/model/BuyOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tosan/model/BuyOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/model/SellOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tosan/model/SellOrder.java" afterDir="false" />
+    </list>
+    <list id="f989d32d-6bd9-41c7-80f6-c2b9b7cb09c6" name="refactor Order Class" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tosan/model/Order.java" afterDir="false" />
+    </list>
+    <list id="f46048b1-9939-474e-a33f-7714b0a74014" name="refactor order result" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/model/OrderResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tosan/model/OrderResult.java" afterDir="false" />
+    </list>
+    <list id="14e6e4f6-ddea-4dda-b006-0dd4a08c45b0" name="refactor pom" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
+    <list id="3a1efa85-3597-4f2b-b14b-1dd306799e46" name="unit test" comment="unit test">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/tosan/factory/OrderFactoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tosan/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tosan/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tosan/data/OrderBookTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tosan/data/OrderBookTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tosan/service/MatchingEngineTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tosan/service/MatchingEngineTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tosan/ui/ConsoleUITest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +82,31 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/com/tosan/service/MatchingEngine.java">
+      <ranges>
+        <range start1="2" end1="2" start2="2" end2="3" changelist="568e49e9-163b-4ebf-b92c-d8b2e7b60705" />
+        <range start1="8" end1="8" start2="9" end2="10" changelist="46a05c19-d631-4aad-a072-5b9acbeec778" />
+        <range start1="13" end1="14" start2="15" end2="17" changelist="568e49e9-163b-4ebf-b92c-d8b2e7b60705" />
+        <range start1="17" end1="17" start2="20" end2="22" changelist="46a05c19-d631-4aad-a072-5b9acbeec778" />
+        <range start1="22" end1="23" start2="27" end2="28" changelist="568e49e9-163b-4ebf-b92c-d8b2e7b60705" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/com/tosan/ui/ConsoleUI.java">
+      <ranges>
+        <range start1="3" end1="3" start2="3" end2="4" changelist="f0d197a2-df7b-4591-811f-3642ff1d4c80" />
+        <range start1="8" end1="8" start2="9" end2="11" changelist="f0d197a2-df7b-4591-811f-3642ff1d4c80" />
+        <range start1="13" end1="13" start2="16" end2="18" changelist="f0d197a2-df7b-4591-811f-3642ff1d4c80" />
+        <range start1="14" end1="15" start2="19" end2="23" changelist="f0d197a2-df7b-4591-811f-3642ff1d4c80" />
+        <range start1="29" end1="29" start2="37" end2="38" changelist="f0d197a2-df7b-4591-811f-3642ff1d4c80" />
+        <range start1="38" end1="39" start2="47" end2="48" changelist="f0d197a2-df7b-4591-811f-3642ff1d4c80" />
+        <range start1="44" end1="45" start2="53" end2="54" changelist="f0d197a2-df7b-4591-811f-3642ff1d4c80" />
+        <range start1="53" end1="53" start2="62" end2="70" changelist="46a05c19-d631-4aad-a072-5b9acbeec778" />
+        <range start1="55" end1="56" start2="72" end2="73" changelist="f0d197a2-df7b-4591-811f-3642ff1d4c80" />
+        <range start1="58" end1="59" start2="75" end2="76" changelist="f0d197a2-df7b-4591-811f-3642ff1d4c80" />
+      </ranges>
+    </file>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -154,7 +235,17 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="3a1efa85-3597-4f2b-b14b-1dd306799e46" name="New changelist" comment="" />
-      <changelist id="" name="orderException" comment="" />
+      <changelist id="568e49e9-163b-4ebf-b92c-d8b2e7b60705" name="creat interface for classes" comment="" />
+      <changelist id="324c0def-c1bc-4e14-bbe0-d518e7427339" name="implementing validation with annotation" comment="" />
+      <changelist id="" name="New changelist" comment="" />
+      <changelist id="7320ab30-6b3a-4164-8677-2f9824ec310a" name="implementingBeanContainer" comment="" />
+      <changelist id="" name="creat inputOrder class" comment="" />
+      <changelist id="46a05c19-d631-4aad-a072-5b9acbeec778" name="implementation of log process" comment="" />
+      <changelist id="f989d32d-6bd9-41c7-80f6-c2b9b7cb09c6" name="refactor Order Class" comment="" />
+      <changelist id="f46048b1-9939-474e-a33f-7714b0a74014" name="refactor order result" comment="" />
+      <changelist id="f0d197a2-df7b-4591-811f-3642ff1d4c80" name="creat orderType enum" comment="" />
+      <changelist id="14e6e4f6-ddea-4dda-b006-0dd4a08c45b0" name="refactor pom" comment="" />
+      <changelist id="3e69411c-439f-4b03-9c53-f318c88812aa" name="refactor buy order and sell order" comment="" />
       <created>1739646091066</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -167,6 +258,11 @@
       <workItem from="1740042136997" duration="29048000" />
       <workItem from="1740120315003" duration="2062000" />
       <workItem from="1740135844434" duration="13180000" />
+      <workItem from="1740204776087" duration="26248000" />
+      <workItem from="1740290566977" duration="7954000" />
+      <workItem from="1740299503972" duration="1139000" />
+      <workItem from="1740369998558" duration="13507000" />
+      <workItem from="1740995946853" duration="26887000" />
     </task>
     <task id="LOCAL-00001" summary="project structure added">
       <option name="closed" value="true" />
@@ -301,14 +397,20 @@
     <MESSAGE value="creat orderFactory class in factory package" />
     <MESSAGE value="create OrderException class" />
     <MESSAGE value="creat orderValidator class" />
-    <option name="LAST_COMMIT_MESSAGE" value="creat orderValidator class" />
+    <MESSAGE value="New changelist" />
+    <MESSAGE value="unit test" />
+    <MESSAGE value="implementation of log process" />
+    <MESSAGE value="creat interface for classes" />
+    <MESSAGE value="creat orderType enum" />
+    <MESSAGE value="implementation BeanContainer" />
+    <option name="LAST_COMMIT_MESSAGE" value="implementation BeanContainer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/tosan/ui/ConsoleUI.java</url>
-          <line>37</line>
+          <line>46</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

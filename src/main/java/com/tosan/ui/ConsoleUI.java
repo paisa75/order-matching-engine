@@ -60,6 +60,14 @@ public class ConsoleUI implements IConsoleUI {
         }
     }
 
+    public static void prepareTextLog(String className, String methodName, Object[] params, Object result, long executionTime, String timeStamp) {
+        System.out.println("[" + timeStamp + "] " + className + "." + methodName + " called.");
+        System.out.println("   Parameters: " + (params != null ? java.util.Arrays.toString(params) : "None"));
+        System.out.println("   Returned: " + (result != null ? result : "void"));
+        System.out.println("   Execution time: " + executionTime + " ms");
+        System.out.println("-------------------------------------------------");
+    }
+
     private Order prepareOrder(String line) {
         String[] tokens = line.split("#");
         OrderType orderType = OrderType.fromLabel(tokens[0]);
