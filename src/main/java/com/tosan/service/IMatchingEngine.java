@@ -1,6 +1,6 @@
 package com.tosan.service;
 
-import com.tosan.model.Order;
+import com.tosan.entity.Order;
 import com.tosan.model.OrderResult;
 
 import java.util.List;

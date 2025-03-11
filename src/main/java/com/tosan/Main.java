@@ -1,7 +1,7 @@
 package com.tosan;
 
 import com.tosan.container.BeanContainer;
-import com.tosan.model.Order;
+import com.tosan.entity.Order;
 import com.tosan.model.OrderResult;
 import com.tosan.service.IMatchingEngine;
 import com.tosan.ui.ConsoleUI;

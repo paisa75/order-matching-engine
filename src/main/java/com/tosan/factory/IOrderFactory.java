@@ -1,7 +1,7 @@
 package com.tosan.factory;
 
 
-import com.tosan.model.Order;
+import com.tosan.entity.Order;
 import com.tosan.model.OrderType;
 
 import java.math.BigDecimal;

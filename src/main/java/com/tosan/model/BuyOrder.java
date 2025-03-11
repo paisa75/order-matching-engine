@@ -1,5 +1,7 @@
 package com.tosan.model;
 
+import com.tosan.entity.Order;
+
 import java.math.BigDecimal;
 import java.util.UUID;
 

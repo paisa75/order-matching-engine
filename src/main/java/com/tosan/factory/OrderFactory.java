@@ -3,7 +3,7 @@ package com.tosan.factory;
 import com.tosan.annotations.Component;
 import com.tosan.exceptions.OrderException;
 import com.tosan.model.BuyOrder;
-import com.tosan.model.Order;
+import com.tosan.entity.Order;
 import com.tosan.model.OrderType;
 import com.tosan.model.SellOrder;
 

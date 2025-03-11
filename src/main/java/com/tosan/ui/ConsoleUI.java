@@ -4,7 +4,7 @@ package com.tosan.ui;
 import com.tosan.annotations.Component;
 import com.tosan.exceptions.OrderException;
 import com.tosan.factory.OrderFactory;
-import com.tosan.model.Order;
+import com.tosan.entity.Order;
 import com.tosan.model.OrderResult;
 import com.tosan.validation.OrderValidator;
 import com.tosan.annotations.InjectObject;

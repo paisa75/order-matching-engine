@@ -4,7 +4,7 @@ import com.tosan.annotations.Component;
 import com.tosan.annotations.InjectObject;
 import com.tosan.data.OrderBook;
 import com.tosan.model.BuyOrder;
-import com.tosan.model.Order;
+import com.tosan.entity.Order;
 import com.tosan.model.OrderResult;
 import com.tosan.model.SellOrder;
 import com.tosan.annotations.Loggable;
