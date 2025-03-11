@@ -2,7 +2,7 @@ package com.tosan.ui;
 
 
 import com.tosan.annotations.Component;
-import com.tosan.exceptions.OrderException;
+import com.tosan.exceptions.OrderProcessingException;
 import com.tosan.factory.OrderFactory;
 import com.tosan.entity.Order;
 import com.tosan.model.OrderResult;
@@ -28,7 +28,7 @@ public class ConsoleUI implements IConsoleUI {
         String line = scanner.nextLine();
         try {
             orderValidator.validateInputFormat(line);
-        } catch (OrderException e) {
+        } catch (OrderProcessingException e) {
             System.out.println("Error: " + e.getMessage());
             return null;
         }

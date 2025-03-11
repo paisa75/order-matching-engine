@@ -1,7 +1,7 @@
 package com.tosan.factory;
 
 import com.tosan.annotations.Component;
-import com.tosan.exceptions.OrderException;
+import com.tosan.exceptions.OrderProcessingException;
 import com.tosan.model.BuyOrder;
 import com.tosan.entity.Order;
 import com.tosan.model.OrderType;
@@ -18,7 +18,7 @@ public class OrderFactory implements IOrderFactory {
         } else if (orderType == OrderType.SELL_ORDER) {
             return new SellOrder(price, quantity);
         } else {
-            throw new OrderException("Invalid order type");
+            throw new OrderProcessingException("Invalid order type");
         }
     }
 }

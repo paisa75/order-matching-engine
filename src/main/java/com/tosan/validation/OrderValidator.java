@@ -1,6 +1,6 @@
 package com.tosan.validation;
 
-import com.tosan.exceptions.OrderException;
+import com.tosan.exceptions.OrderProcessingException;
 import com.tosan.model.InputOrder;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
@@ -24,12 +24,12 @@ public class OrderValidator {
 
     public void validateInputFormat(String input) {
         if (input == null || input.trim().isEmpty()) {
-            throw new OrderException("Input cannot be empty.");
+            throw new OrderProcessingException  ("Input cannot be empty.");
         }
 
         String[] parts = input.split("#");
         if (parts.length != 3) {
-            throw new OrderException("Input must have exactly 3 parts separated by '#'.");
+            throw new OrderProcessingException  ("Input must have exactly 3 parts separated by '#'.");
         }
 
         String orderType = parts[0].trim();
@@ -45,7 +45,7 @@ public class OrderValidator {
             for (ConstraintViolation<InputOrder> violation : violations) {
                 errors.append(violation.getMessage()).append("\n");
             }
-            throw new OrderException(errors.toString());
+            throw new OrderProcessingException(errors.toString());
         }
     }
 }
