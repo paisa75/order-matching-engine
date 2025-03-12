@@ -4,20 +4,13 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46a05c19-d631-4aad-a072-5b9acbeec778" name="implementation of log process" comment="implementation of log process">
+    <list default="true" id="46a05c19-d631-4aad-a072-5b9acbeec778" name="implementation of log process" comment="Refactored loadUserByUsername method Refactored loadUserByUsername method in CustomUserDetailsService to map user roles">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/security/JwtUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tosan/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tosan/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/security/CustomUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tosan/security/CustomUserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
-    <list id="568e49e9-163b-4ebf-b92c-d8b2e7b60705" name="creat interface for classes" comment="creat interface for classes" />
-    <list id="f0d197a2-df7b-4591-811f-3642ff1d4c80" name="creat orderType enum" comment="creat orderType enum" />
-    <list id="7320ab30-6b3a-4164-8677-2f9824ec310a" name="implementation BeanContainer" comment="implementation BeanContainer" />
-    <list id="324c0def-c1bc-4e14-bbe0-d518e7427339" name="implementing validation with annotation" comment="" />
-    <list id="3e69411c-439f-4b03-9c53-f318c88812aa" name="refactor buy order and sell order" comment="" />
-    <list id="f989d32d-6bd9-41c7-80f6-c2b9b7cb09c6" name="refactor Order Class" comment="" />
-    <list id="f46048b1-9939-474e-a33f-7714b0a74014" name="refactor order result" comment="" />
-    <list id="14e6e4f6-ddea-4dda-b006-0dd4a08c45b0" name="refactor pom" comment="" />
-    <list id="3a1efa85-3597-4f2b-b14b-1dd306799e46" name="unit test" comment="unit test" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,13 +21,16 @@
       <list>
         <option value="JUnit5 Test Class" />
         <option value="AnnotationType" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -46,30 +42,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "develop-spring",
-    "last_opened_file_path": "C:/Users/phose/Downloads/spring-framework-main/spring-framework-main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.build.tools.auto.reload": "ALL",
-    "settings.editor.selected.configurable": "build.tools",
-    "vcs.patch.path": "C:/Users/phose/Desktop",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop-spring&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/phose/Downloads/spring-framework-main/spring-framework-main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.build.tools.auto.reload&quot;: &quot;ALL&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;build.tools&quot;,
+    &quot;vcs.patch.path&quot;: &quot;C:/Users/phose/Desktop&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -93,7 +89,7 @@
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.tosan.Main" />
-      <module name="MatchingOrderEngine" />
+      <module name="order-matching-engine" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.tosan.*" />
@@ -172,18 +168,16 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3a1efa85-3597-4f2b-b14b-1dd306799e46" name="New changelist" comment="" />
-      <changelist id="568e49e9-163b-4ebf-b92c-d8b2e7b60705" name="creat interface for classes" comment="" />
-      <changelist id="324c0def-c1bc-4e14-bbe0-d518e7427339" name="implementing validation with annotation" comment="" />
       <changelist id="" name="New changelist" comment="" />
-      <changelist id="7320ab30-6b3a-4164-8677-2f9824ec310a" name="implementingBeanContainer" comment="" />
-      <changelist id="" name="creat inputOrder class" comment="" />
+      <changelist id="" name="creat interface for classes" comment="" />
+      <changelist id="" name="implementing validation with annotation" comment="" />
+      <changelist id="" name="implementingBeanContainer" comment="" />
       <changelist id="46a05c19-d631-4aad-a072-5b9acbeec778" name="implementation of log process" comment="" />
-      <changelist id="f989d32d-6bd9-41c7-80f6-c2b9b7cb09c6" name="refactor Order Class" comment="" />
-      <changelist id="f46048b1-9939-474e-a33f-7714b0a74014" name="refactor order result" comment="" />
-      <changelist id="f0d197a2-df7b-4591-811f-3642ff1d4c80" name="creat orderType enum" comment="" />
-      <changelist id="14e6e4f6-ddea-4dda-b006-0dd4a08c45b0" name="refactor pom" comment="" />
-      <changelist id="3e69411c-439f-4b03-9c53-f318c88812aa" name="refactor buy order and sell order" comment="" />
+      <changelist id="" name="refactor Order Class" comment="" />
+      <changelist id="" name="refactor order result" comment="" />
+      <changelist id="" name="creat orderType enum" comment="" />
+      <changelist id="" name="refactor pom" comment="" />
+      <changelist id="" name="refactor buy order and sell order" comment="" />
       <created>1739646091066</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -201,6 +195,7 @@
       <workItem from="1740299503972" duration="1139000" />
       <workItem from="1740369998558" duration="13507000" />
       <workItem from="1740995946853" duration="26887000" />
+      <workItem from="1741755020333" duration="11487000" />
     </task>
     <task id="LOCAL-00001" summary="project structure added">
       <option name="closed" value="true" />
@@ -306,7 +301,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740155616739</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Refactored loadUserByUsername method Refactored loadUserByUsername method in CustomUserDetailsService to map user roles">
+      <option name="closed" value="true" />
+      <created>1741696991207</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1741696991207</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -341,7 +344,8 @@
     <MESSAGE value="creat interface for classes" />
     <MESSAGE value="creat orderType enum" />
     <MESSAGE value="implementation BeanContainer" />
-    <option name="LAST_COMMIT_MESSAGE" value="implementation BeanContainer" />
+    <MESSAGE value="Refactored loadUserByUsername method Refactored loadUserByUsername method in CustomUserDetailsService to map user roles" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored loadUserByUsername method Refactored loadUserByUsername method in CustomUserDetailsService to map user roles" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
