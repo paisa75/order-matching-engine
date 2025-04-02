@@ -5,10 +5,75 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46a05c19-d631-4aad-a072-5b9acbeec778" name="implementation of log process" comment="Refactored loadUserByUsername method Refactored loadUserByUsername method in CustomUserDetailsService to map user roles">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/security/JwtUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/ome/controller/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/ome/controller/ResourceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/ome/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/ome/controller/dtos/AuthenticationRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/ome/controller/dtos/AuthenticationResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/ome/controller/dtos/UserDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/ome/controller/exceptions/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/ome/controller/exceptions/InvalidPayloadException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/ome/controller/exceptions/UserIdAlreadyExistException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/ome/repository/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/ome/security/ApplicationSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/ome/security/UserDetailsServiceConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/ome/security/jwt/JwtAuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/ome/security/jwt/JwtAuthorizationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/ome/security/jwt/JwtUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/ome/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tosan/ome/service/UserServicePort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HELP.md" beforeDir="false" afterPath="$PROJECT_DIR$/HELP.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/security/CustomUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tosan/security/CustomUserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/annotations/Component.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/annotations/InjectObject.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/annotations/Loggable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/annotations/ValidInputFormat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/annotations/ValidOrderType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/annotations/ValidPrice.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/annotations/ValidQuantity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/container/BeanContainer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/data/IOrderBook.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/data/OrderBook.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/entity/Order.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/entity/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/exceptions/InvalidTokenException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/exceptions/OrderException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/exceptions/OrderNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/exceptions/OrderProcessingException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/exceptions/UnauthorizedException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/exceptions/UserNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/factory/IOrderFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/factory/OrderFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/logging/LogProxy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/logging/Logger.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/model/BuyOrder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/model/InputOrder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/model/OrderResult.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/model/OrderType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/model/SellOrder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/ome/OrderMatchingEngineApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tosan/ome/OrderMatchingEngineApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tosan/ome/repository/repositories/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/scanner/PackageScanner.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/security/CustomUserDetailsService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/security/JwtUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/service/IMatchingEngine.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/service/MatchingEngine.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/ui/ConsoleUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/ui/IConsoleUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/ui/UserMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/validation/InputFormatValidator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/validation/OrderTypeValidator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/validation/OrderValidator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/validation/PositivePriceValidator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tosan/validation/PositiveQuantityValidator.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -16,17 +81,28 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+      <option value="module" />
+    </option>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
         <option value="AnnotationType" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="develop-spring" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -36,22 +112,27 @@
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2t5dtL3wIyZgZCQc89v6UEEhkyt" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
-    <option name="autoscrollFromSource" value="true" />
-    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop-spring&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/phose/Downloads/spring-framework-main/spring-framework-main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;order-matching-engine-spring&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Projects/order-matching-engine/order-matching-engine&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -86,7 +167,7 @@
       <recent name="com.tosan.ui" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Spring Boot.OrderMatchingEngineApplication">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.tosan.Main" />
       <module name="order-matching-engine" />
@@ -150,7 +231,7 @@
     </configuration>
     <configuration name="OrderMatchingEngineApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <module name="order-matching-engine" />
+      <module name="ome" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.tosan.ome.OrderMatchingEngineApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -168,16 +249,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="" name="New changelist" comment="" />
-      <changelist id="" name="creat interface for classes" comment="" />
-      <changelist id="" name="implementing validation with annotation" comment="" />
-      <changelist id="" name="implementingBeanContainer" comment="" />
       <changelist id="46a05c19-d631-4aad-a072-5b9acbeec778" name="implementation of log process" comment="" />
-      <changelist id="" name="refactor Order Class" comment="" />
-      <changelist id="" name="refactor order result" comment="" />
-      <changelist id="" name="creat orderType enum" comment="" />
-      <changelist id="" name="refactor pom" comment="" />
-      <changelist id="" name="refactor buy order and sell order" comment="" />
       <created>1739646091066</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -196,6 +268,17 @@
       <workItem from="1740369998558" duration="13507000" />
       <workItem from="1740995946853" duration="26887000" />
       <workItem from="1741755020333" duration="11487000" />
+      <workItem from="1742018726724" duration="20961000" />
+      <workItem from="1742193305774" duration="21180000" />
+      <workItem from="1742270244556" duration="1794000" />
+      <workItem from="1742734313685" duration="65000" />
+      <workItem from="1742976537570" duration="6342000" />
+      <workItem from="1742998428178" duration="7276000" />
+      <workItem from="1743058788319" duration="21183000" />
+      <workItem from="1743237592134" duration="6309000" />
+      <workItem from="1743246922657" duration="5038000" />
+      <workItem from="1743319610993" duration="7607000" />
+      <workItem from="1743426589441" duration="12284000" />
     </task>
     <task id="LOCAL-00001" summary="project structure added">
       <option name="closed" value="true" />
@@ -327,6 +410,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="project structure added" />
     <MESSAGE value="maven compiler version upgraded to 21" />
     <MESSAGE value="implementation Order Matching Engine" />
@@ -351,34 +435,79 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tosan/ui/ConsoleUI.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/tosan/ome/ui/ConsoleUI.java</url>
           <line>46</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tosan/data/OrderBook.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/tosan/ome/data/OrderBook.java</url>
           <line>16</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tosan/validation/InputFormatValidator.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/tosan/ome/validation/InputFormatValidator.java</url>
           <line>15</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tosan/service/MatchingEngine.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/tosan/ome/service/MatchingEngine.java</url>
           <line>23</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tosan/logging/Logger.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/tosan/ome/logging/Logger.java</url>
           <line>13</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tosan/container/BeanContainer.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/tosan/ome/container/BeanContainer.java</url>
           <line>86</line>
           <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tosan/ome/security/CustomUserDetailsService.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tosan/ome/controller/UserController.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tosan/ome/controller/ResourceController.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tosan/ome/security/jwt/JwtAuthorizationFilter.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tosan/ome/security/jwt/JwtAuthenticationFilter.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tosan/ome/security/jwt/JwtUtil.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tosan/ome/security/jwt/JwtUtil.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tosan/ome/security/jwt/JwtUtil.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tosan/ome/controller/AuthController.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="51" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
