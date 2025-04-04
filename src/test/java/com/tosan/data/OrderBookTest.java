@@ -1,7 +1,0 @@
-package com.tosan.data;
-
-import static org.junit.jupiter.api.Assertions.*;
-
-class OrderBookTest {
-
-}
