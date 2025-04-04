@@ -11,7 +11,9 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @ToString
 @Entity
-@Table(name = "BUY-ORDER-DETAILS")
+@Table(name = "BUY-ORDER-DETAILS", indexes = {
+        @Index(name = "idx_price_desc_id_asc", columnList = "price DESC, id ASC")
+})
 public class BuyOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "buy_order_seq")
