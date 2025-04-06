@@ -2,9 +2,11 @@ package com.tosan.ome.service;
 
 import com.tosan.ome.repository.entity.BuyOrder;
 import com.tosan.ome.repository.entity.CompletedTrade;
+import com.tosan.ome.repository.entity.MarketPrice;
 import com.tosan.ome.repository.entity.SellOrder;
 import com.tosan.ome.repository.repositories.BuyOrderRepository;
 import com.tosan.ome.repository.repositories.CompletedOrdersRepository;
+import com.tosan.ome.repository.repositories.MarketPriceRepository;
 import com.tosan.ome.repository.repositories.SellOrderRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -14,6 +16,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Isolation;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +28,7 @@ public class MatchingEngine {
     private final SellOrderRepository sellOrderRepository;
     private final BuyOrderRepository buyOrderRepository;
     private final CompletedOrdersRepository completedOrdersRepository;
+    private final MarketPriceRepository marketPriceRepository;
 
     @Transactional(
             propagation = Propagation.REQUIRED,
@@ -63,6 +67,7 @@ public class MatchingEngine {
                 }
 
                 prepareCompletedOrder(highestBuy, lowestSell, tradePrice, tradeQuantity, completedTrades);
+                updateMarketPrice(tradePrice);
             } else {
                 break;
             }
@@ -81,4 +86,16 @@ public class MatchingEngine {
         completedOrder.setTradeQuantity(tradeQuantity);
         completedOrders.add(completedOrder);
     }
+
+    public void updateMarketPrice(BigDecimal tradePrice) {
+        MarketPrice marketPrice = marketPriceRepository.findTop1ByOrderByTimestampDesc();
+        if (marketPrice == null) {
+            marketPrice = new MarketPrice();
+        }
+        marketPrice.setMarketPrice(tradePrice);
+
+        marketPrice.setTimestamp(LocalDateTime.now());
+        marketPriceRepository.save(marketPrice);
+    }
+
 }
