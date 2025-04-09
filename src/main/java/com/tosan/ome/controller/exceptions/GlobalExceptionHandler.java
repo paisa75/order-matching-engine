@@ -4,6 +4,8 @@ import io.jsonwebtoken.security.SignatureException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
@@ -51,15 +53,17 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(UserIdAlreadyExistException.class)
-    public ResponseEntity<?> handleUserIdAlreadyExistException
-            (UserIdAlreadyExistException userIdAlreadyExistException, WebRequest webRequest) {
+    @ExceptionHandler(UsernameAlreadyExistsException.class)
+    public ResponseEntity<?> handleUsernameAlreadyExistsException
+            (UsernameAlreadyExistsException ex, WebRequest webRequest) {
+
         Map<String, Object> body = new HashMap<>();
         body.put("code", HttpStatus.BAD_REQUEST.value());
         body.put("timestamp", LocalDateTime.now());
-        body.put("message", userIdAlreadyExistException.getMessage());
+        body.put("message", ex.getMessage());
         body.put("path", webRequest.getContextPath());
         body.put("sessionId", webRequest.getSessionId());
+
         return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
     }
 
@@ -73,5 +77,21 @@ public class GlobalExceptionHandler {
         body.put("path", webRequest.getContextPath());
         body.put("sessionId", webRequest.getSessionId());
         return new ResponseEntity<>(body, HttpStatus.UNAUTHORIZED);
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<?> handleValidationExceptions(
+            MethodArgumentNotValidException ex, WebRequest webRequest) {
+
+        Map<String, Object> body = new HashMap<>();
+        body.put("code", HttpStatus.BAD_REQUEST.value());
+        body.put("timestamp", LocalDateTime.now());
+        body.put("path", webRequest.getContextPath());
+        body.put("sessionId", webRequest.getSessionId());
+
+        FieldError fieldError = ex.getBindingResult().getFieldErrors().get(0);
+        body.put("message", fieldError.getDefaultMessage());
+
+        return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
     }
 }
