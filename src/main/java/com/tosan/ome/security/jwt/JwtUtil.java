@@ -16,14 +16,18 @@ import java.util.function.Function;
 
 @Component
 public class JwtUtil {
+
+    // JwtUtil is :  BearerToken = Json<Header>.Json<payload>.Json<signature>
+    // "jwt": "eyJhbGciOiJIUzI1NiJ9 . eyJzdWIiOiJwYXJpYSIsImlhdCI6MTc0NDE4MzA0MSwiZXhwIjoxNzQ0MTg2NjQxfQ . 2Qs7Pt34O_1hmIlokxMhduk728KRDpEp4cW1btZq4VQ"
+
     @Value("${jwt.secret}")
-    private String secret;
+    private String secret; // For creating a signature
     @Value("${jwt.token.lifespan}")
     private long tokenLifeSpan;
 
     private SecretKey getSigningKey() {
         return Keys.hmacShaKeyFor(secret.getBytes());
-    }
+    } // Sign data with HMAC algorithm
 
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();

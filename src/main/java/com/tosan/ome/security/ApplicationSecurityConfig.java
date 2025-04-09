@@ -1,10 +1,8 @@
 package com.tosan.ome.security;
 
-import com.tosan.ome.security.jwt.JwtAuthenticationFilter;
 import com.tosan.ome.security.jwt.JwtAuthorizationFilter;
 import com.tosan.ome.security.jwt.JwtUtil;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -31,11 +29,10 @@ public class ApplicationSecurityConfig {
                                 .anyRequest()
                                 .authenticated()
                 )
-                .headers(headers -> headers
-                        .frameOptions(frameOptions -> frameOptions.sameOrigin())
-                )
-                .addFilter(new JwtAuthenticationFilter(authenticationManager(httpSecurity.getSharedObject(AuthenticationConfiguration.class)), jwtUtil))
-                .addFilter(new JwtAuthorizationFilter(authenticationManager(httpSecurity.getSharedObject(AuthenticationConfiguration.class)), jwtUtil, userDetailsService));
+                .addFilter(new JwtAuthorizationFilter(
+                        authenticationManager(httpSecurity.getSharedObject(AuthenticationConfiguration.class)),
+                        jwtUtil,
+                        userDetailsService));
         return httpSecurity.build();
     }
 
