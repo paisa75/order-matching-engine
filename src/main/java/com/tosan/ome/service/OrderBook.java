@@ -13,11 +13,11 @@ public class OrderBook {
     private List<SellOrder> sellOrders = new ArrayList<>();
 
     public BuyOrder getHighestBuyOrder() {
-        return (BuyOrder) buyOrders.getFirst();
+        return buyOrders.getFirst();
     }
 
 
     public SellOrder getLowestSellOrder() {
-        return (SellOrder) sellOrders.getFirst();
+        return sellOrders.getFirst();
     }
 }

@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
 
+import static com.tosan.ome.controller.RestBasePath.BASE_PATH;
+
 @RestController
-@RequestMapping("/market")
+@RequestMapping(BASE_PATH + "/market")
 @AllArgsConstructor
 public class MarketDataController {
 

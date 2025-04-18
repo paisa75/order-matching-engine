@@ -1,10 +1,11 @@
 package com.tosan.ome.controller.dtos;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 
+@Data
 @AllArgsConstructor
-@Getter
 public class AuthenticationResponse {
-    final private String jwt;
+    private final String jwt;
 }

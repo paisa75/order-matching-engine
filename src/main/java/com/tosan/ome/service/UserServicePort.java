@@ -10,5 +10,6 @@ public interface UserServicePort {
     UserDto saveUser(UserDto dto);
 
     Optional<User> findByUsername(String username);
+
     UserDto registerUser(UserDto userDto);
 }

@@ -2,11 +2,10 @@ package com.tosan.ome.service;
 
 import com.tosan.ome.repository.entity.BuyOrder;
 import com.tosan.ome.repository.entity.CompletedTrade;
-import com.tosan.ome.repository.entity.MarketPrice;
+import com.tosan.ome.repository.entity.OrderStatus;
 import com.tosan.ome.repository.entity.SellOrder;
 import com.tosan.ome.repository.repositories.BuyOrderRepository;
 import com.tosan.ome.repository.repositories.CompletedOrdersRepository;
-import com.tosan.ome.repository.repositories.MarketPriceRepository;
 import com.tosan.ome.repository.repositories.SellOrderRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +15,6 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Isolation;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +26,16 @@ public class MatchingEngine {
     private final SellOrderRepository sellOrderRepository;
     private final BuyOrderRepository buyOrderRepository;
     private final CompletedOrdersRepository completedOrdersRepository;
-    private final MarketPriceRepository marketPriceRepository;
+    private final MarketDataServicePort marketDataServicePort;
+
+    private static void prepareCompletedOrder(BuyOrder highestBuy, SellOrder lowestSell, BigDecimal tradePrice, int tradeQuantity, List<CompletedTrade> completedOrders) {
+        CompletedTrade completedOrder = new CompletedTrade();
+        completedOrder.setBuyOrder(highestBuy);
+        completedOrder.setSellOrder(lowestSell);
+        completedOrder.setTradePrice(tradePrice);
+        completedOrder.setTradeQuantity(tradeQuantity);
+        completedOrders.add(completedOrder);
+    }
 
     @Transactional(
             propagation = Propagation.REQUIRED,
@@ -39,8 +46,8 @@ public class MatchingEngine {
         log.info("Matching orders started...");
 
         OrderBook orderBook = new OrderBook();
-        orderBook.setSellOrders(sellOrderRepository.findAllByOrderByPriceAscIdAsc());
-        orderBook.setBuyOrders(buyOrderRepository.findAllByOrderByPriceDescIdAsc());
+        orderBook.setSellOrders(sellOrderRepository.findByActiveTrueAndStatusNotOrderByPriceAscIdAsc(OrderStatus.CANCELLED));
+        orderBook.setBuyOrders(buyOrderRepository.findByActiveTrueAndStatusNotOrderByPriceDescIdAsc(OrderStatus.CANCELLED));
 
         List<CompletedTrade> completedTrades = new ArrayList<>();
 
@@ -53,49 +60,34 @@ public class MatchingEngine {
                 BigDecimal tradePrice = lowestSell.getPrice();
 
                 highestBuy.setQuantity(highestBuy.getQuantity() - tradeQuantity);
+                highestBuy.setStatus(OrderStatus.PARTIALLY_FILLED);
                 lowestSell.setQuantity(lowestSell.getQuantity() - tradeQuantity);
+                lowestSell.setStatus(OrderStatus.PARTIALLY_FILLED);
 
                 if (highestBuy.getQuantity() == 0) {
                     highestBuy.setActive(false);
-                    buyOrderRepository.save(highestBuy);
+                    highestBuy.setStatus(OrderStatus.FILLED);
                     orderBook.getBuyOrders().remove(highestBuy);
                 }
                 if (lowestSell.getQuantity() == 0) {
                     lowestSell.setActive(false);
-                    sellOrderRepository.save(lowestSell);
+                    lowestSell.setStatus(OrderStatus.FILLED);
                     orderBook.getSellOrders().remove(lowestSell);
                 }
 
                 prepareCompletedOrder(highestBuy, lowestSell, tradePrice, tradeQuantity, completedTrades);
-                updateMarketPrice(tradePrice);
+
+                buyOrderRepository.save(highestBuy);
+                sellOrderRepository.save(lowestSell);
+
+                marketDataServicePort.updateMarketPrice(tradePrice);
             } else {
                 break;
             }
         }
         completedOrdersRepository.saveAll(completedTrades);
-        log.info("Matching orders ended with {} completed trades.",completedTrades.size());
+        log.info("Matching orders ended with {} completed trades.", completedTrades.size());
 
         return completedTrades;
     }
-
-    private static void prepareCompletedOrder(BuyOrder highestBuy, SellOrder lowestSell, BigDecimal tradePrice, int tradeQuantity, List<CompletedTrade> completedOrders) {
-        CompletedTrade completedOrder = new CompletedTrade();
-        completedOrder.setBuyOrder(highestBuy);
-        completedOrder.setSellOrder(lowestSell);
-        completedOrder.setTradePrice(tradePrice);
-        completedOrder.setTradeQuantity(tradeQuantity);
-        completedOrders.add(completedOrder);
-    }
-
-    public void updateMarketPrice(BigDecimal tradePrice) {
-        MarketPrice marketPrice = marketPriceRepository.findTop1ByOrderByTimestampDesc();
-        if (marketPrice == null) {
-            marketPrice = new MarketPrice();
-        }
-        marketPrice.setMarketPrice(tradePrice);
-
-        marketPrice.setTimestamp(LocalDateTime.now());
-        marketPriceRepository.save(marketPrice);
-    }
-
 }

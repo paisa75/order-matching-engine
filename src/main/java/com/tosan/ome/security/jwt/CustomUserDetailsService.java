@@ -1,4 +1,4 @@
-package com.tosan.ome.security;
+package com.tosan.ome.security.jwt;
 
 import com.tosan.ome.repository.entity.User;
 import com.tosan.ome.repository.repositories.UserRepository;
@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class CustomUserDetailsService implements UserDetailsService {
 
     private final UserRepository userRepository;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username)

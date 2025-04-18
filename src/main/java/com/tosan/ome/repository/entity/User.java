@@ -27,7 +27,4 @@ public class User {
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<BuyOrder> buyOrders;
-
-//    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-//    private List<CompletedOrders> completedOrders;
 }

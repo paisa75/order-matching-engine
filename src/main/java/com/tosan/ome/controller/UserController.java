@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import static com.tosan.ome.controller.RestBasePath.BASE_PATH;
+
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping(BASE_PATH + "/auth")
 @AllArgsConstructor
 public class UserController {
 

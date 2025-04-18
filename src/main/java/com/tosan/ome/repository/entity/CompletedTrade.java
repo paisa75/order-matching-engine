@@ -31,8 +31,4 @@ public class CompletedTrade {
     @ManyToOne
     @JoinColumn(name = "sellOrder_id", nullable = false)
     private SellOrder sellOrder;
-//    @ManyToOne
-//    @JoinColumn(name = "user_id", nullable = false)
-//    private User user;
-
 }

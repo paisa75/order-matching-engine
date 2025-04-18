@@ -23,6 +23,13 @@ public class BuyOrder {
     @Column
     private Boolean active;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private OrderStatus status = OrderStatus.PENDING;
+
+    @Column(name = "tracking_code", unique = true, nullable = false, updatable = false)
+    private String trackingCode;
+
     @Column
     protected BigDecimal price;
 
@@ -32,6 +39,4 @@ public class BuyOrder {
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
-
-
 }

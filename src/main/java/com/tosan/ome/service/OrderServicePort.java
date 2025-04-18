@@ -3,7 +3,9 @@ package com.tosan.ome.service;
 import com.tosan.ome.controller.dtos.OrderDto;
 
 public interface OrderServicePort {
-    OrderDto creatSellOrder(OrderDto OOrderDto, String username);
+    boolean cancelOrderByTrackingCode(String trackingCode);
 
-    OrderDto creatBuyOrder(OrderDto OOrderDto, String username);
+    OrderDto creatSellOrder(OrderDto orderDto, String username);
+
+    OrderDto creatBuyOrder(OrderDto orderDto, String username);
 }

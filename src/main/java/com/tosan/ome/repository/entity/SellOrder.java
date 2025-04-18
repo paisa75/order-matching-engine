@@ -23,6 +23,13 @@ public class SellOrder {
     @Column
     private Boolean active;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private OrderStatus status = OrderStatus.PENDING;
+
+    @Column(name = "tracking_code", unique = true, nullable = false, updatable = false)
+    private String trackingCode;
+
     @Column
     protected BigDecimal price;
 

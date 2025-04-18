@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.*;
 
 import org.slf4j.Logger;
 
+import static com.tosan.ome.controller.RestBasePath.BASE_PATH;
+
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping(BASE_PATH + "/auth")
 @RequiredArgsConstructor
 public class AuthController {
     private static final Logger log = LoggerFactory.getLogger(AuthController.class);

@@ -16,15 +16,8 @@ import java.util.List;
 @RequestMapping("/resource")
 @RequiredArgsConstructor
 public class ResourceController {
-
-    private final SellOrderRepository sellOrderRepository;
-    private final BuyOrderRepository buyOrderRepository;
-
     @GetMapping("/secure")
-    public ResponseEntity<String> secureResource(){
-
-        List<SellOrder> allByOrderByPriceAscIdAsc = sellOrderRepository.findAllByOrderByPriceAscIdAsc();
-        List<BuyOrder> allByOrderByPriceDescIdAsc = buyOrderRepository.findAllByOrderByPriceDescIdAsc();
+    public ResponseEntity<String> secureResource() {
         return ResponseEntity.ok("Yes, Your JWT Works...");
     }
 }

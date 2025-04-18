@@ -1,97 +1,75 @@
 package com.tosan.ome.controller.exceptions;
 
-import io.jsonwebtoken.security.SignatureException;
+import com.tosan.ome.controller.dtos.ErrorResponseDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
+import java.util.stream.Collectors;
 
-@ControllerAdvice
+@RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<?> handleException
-            (Exception exception, WebRequest webRequest) {
-        Map<String, Object> body = new HashMap<>();
-        body.put("code", HttpStatus.BAD_REQUEST.value());
-        body.put("timestamp", LocalDateTime.now());
-        body.put("message", exception.getMessage());
-        body.put("path", webRequest.getContextPath());
-        body.put("sessionId", webRequest.getSessionId());
-        return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
-    }
-
-    @ExceptionHandler(BadCredentialsException.class)
-    public ResponseEntity<?> handleBadCredentialsException
-            (BadCredentialsException badCredentialsException, WebRequest webRequest) {
-        Map<String, Object> body = new HashMap<>();
-        body.put("code", HttpStatus.UNAUTHORIZED.value());
-        body.put("timestamp", LocalDateTime.now());
-        body.put("message", badCredentialsException.getMessage());
-        body.put("path", webRequest.getContextPath());
-        body.put("sessionId", webRequest.getSessionId());
-        return new ResponseEntity<>(body, HttpStatus.UNAUTHORIZED);
-    }
-
-    @ExceptionHandler(InvalidPayloadException.class)
-    public ResponseEntity<?> handleInvalidPayloadException
-            (InvalidPayloadException invalidPayloadException, WebRequest webRequest) {
-        Map<String, Object> body = new HashMap<>();
-        body.put("code", HttpStatus.BAD_REQUEST.value());
-        body.put("timestamp", LocalDateTime.now());
-        body.put("message", invalidPayloadException.getMessage());
-        body.put("path", webRequest.getContextPath());
-        body.put("sessionId", webRequest.getSessionId());
-        return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
-    }
-
     @ExceptionHandler(UsernameAlreadyExistsException.class)
-    public ResponseEntity<?> handleUsernameAlreadyExistsException
-            (UsernameAlreadyExistsException ex, WebRequest webRequest) {
-
-        Map<String, Object> body = new HashMap<>();
-        body.put("code", HttpStatus.BAD_REQUEST.value());
-        body.put("timestamp", LocalDateTime.now());
-        body.put("message", ex.getMessage());
-        body.put("path", webRequest.getContextPath());
-        body.put("sessionId", webRequest.getSessionId());
-
-        return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
-    }
-
-    @ExceptionHandler(SignatureException.class)
-    public ResponseEntity<?> handleSignatureException
-            (SignatureException signatureException, WebRequest webRequest) {
-        Map<String, Object> body = new HashMap<>();
-        body.put("code", HttpStatus.UNAUTHORIZED.value());
-        body.put("timestamp", LocalDateTime.now());
-        body.put("message", signatureException.getMessage());
-        body.put("path", webRequest.getContextPath());
-        body.put("sessionId", webRequest.getSessionId());
-        return new ResponseEntity<>(body, HttpStatus.UNAUTHORIZED);
+    public ResponseEntity<ErrorResponseDto> handleUsernameAlreadyExists(UsernameAlreadyExistsException ex, WebRequest request) {
+        return buildErrorResponse(ex.getMessage(), HttpStatus.BAD_REQUEST, request);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<?> handleValidationExceptions(
-            MethodArgumentNotValidException ex, WebRequest webRequest) {
+    public ResponseEntity<ErrorResponseDto> handleValidationException(MethodArgumentNotValidException ex, WebRequest request) {
+        List<String> errors = ex.getBindingResult().getFieldErrors()
+                .stream()
+                .map(fieldError -> fieldError.getField() + ": " + fieldError.getDefaultMessage())
+                .collect(Collectors.toList());
 
-        Map<String, Object> body = new HashMap<>();
-        body.put("code", HttpStatus.BAD_REQUEST.value());
-        body.put("timestamp", LocalDateTime.now());
-        body.put("path", webRequest.getContextPath());
-        body.put("sessionId", webRequest.getSessionId());
+        String path = request.getDescription(false).replace("uri=", "");
+        ErrorResponseDto errorResponse = new ErrorResponseDto(
+                LocalDateTime.now(),
+                HttpStatus.BAD_REQUEST.value(),
+                HttpStatus.BAD_REQUEST.getReasonPhrase(),
+                "Validation failed",
+                path,
+                errors
+        );
 
-        FieldError fieldError = ex.getBindingResult().getFieldErrors().get(0);
-        body.put("message", fieldError.getDefaultMessage());
+        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+    }
 
-        return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
+    @ExceptionHandler(BadCredentialsException.class)
+    public ResponseEntity<ErrorResponseDto> handleBadCredentialsException(BadCredentialsException ex, WebRequest request) {
+        return buildErrorResponse("Bad credentials", HttpStatus.UNAUTHORIZED, request);
+    }
+
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<ErrorResponseDto> handleRuntimeException(RuntimeException ex, WebRequest request) {
+        return buildErrorResponse(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR, request);
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorResponseDto> handleGenericException(Exception ex, WebRequest request) {
+        return buildErrorResponse("Unexpected error occurred", HttpStatus.INTERNAL_SERVER_ERROR, request);
+    }
+
+    private ResponseEntity<ErrorResponseDto> buildErrorResponse(String message, HttpStatus status, WebRequest request) {
+        String path = request.getDescription(false).replace("uri=", "");
+        ErrorResponseDto errorResponse = new ErrorResponseDto(
+                LocalDateTime.now(),
+                status.value(),
+                status.getReasonPhrase(),
+                message,
+                path
+        );
+        return new ResponseEntity<>(errorResponse, status);
+    }
+
+    @ExceptionHandler(InvalidPayloadException.class)
+    public ResponseEntity<ErrorResponseDto> handleInvalidPayloadException(InvalidPayloadException ex, WebRequest request) {
+        return buildErrorResponse(ex.getMessage(), HttpStatus.BAD_REQUEST, request);
     }
 }

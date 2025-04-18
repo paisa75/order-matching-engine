@@ -6,4 +6,6 @@ import java.math.BigDecimal;
 
 public interface MarketDataServicePort {
     BigDecimal getMarketPrice();
+
+    void updateMarketPrice(BigDecimal tradePrice);
 }

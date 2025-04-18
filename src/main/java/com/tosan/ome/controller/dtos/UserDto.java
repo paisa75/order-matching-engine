@@ -3,9 +3,13 @@ package com.tosan.ome.controller.dtos;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserDto {
     private Long userId;
 
@@ -15,11 +19,10 @@ public class UserDto {
     private String username;
 
     @NotBlank(message = "Password must not be blank")
+    @Size(min = 8, message = "Password must be at least 8 characters long")
+//    @Pattern(
+//            regexp = "^(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]+$",
+//            message = "Password must contain at least one uppercase letter, one digit, and one special character"
+//    )
     private String password;
-
-    // Constructor for test cases and easier initialization
-    public UserDto(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
 }
